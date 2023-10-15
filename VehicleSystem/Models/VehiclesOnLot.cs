@@ -17,16 +17,19 @@ namespace VehicleSystem.Models
                     VehicleId = 1,
                     Year = 1996,
                     Make = "Honda",
-                    Model = "Civic",
-                    Trim = "DX"
+                    VehModel = "Civic",
+                    Trim = "DX",
+                    BodyStyle = "Hatchback"
                 },
                 new Vehicle
                 {
                     VehicleId = 2,
                     Year = 1997,
                     Make = "Honda",
-                    Model = "Civic",
-                    Trim = "DX"
+                    VehModel = "Civic",
+                    Trim = "Si",
+                    BodyStyle = "Coupe"
+
                 }
             );
         }

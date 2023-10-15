@@ -13,10 +13,13 @@ namespace VehicleSystem.Models
         public string Make { get; set; }
 
         [Required(ErrorMessage = "Model")]
-        public string Model { get; set; }
+        public string VehModel { get; set; }
 
         [Required(ErrorMessage = "Trim")] 
         public string Trim { get; set; }
+
+        [Required(ErrorMessage = "BodyStyle")]
+        public string BodyStyle { get; set; }
 
     }
 }

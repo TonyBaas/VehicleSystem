@@ -30,7 +30,7 @@ namespace VehicleSystem.Migrations
 
             migrationBuilder.InsertData(
                 table: "Vehicles",
-                columns: new[] { "VehicleId", "Make", "Model", "Trim", "Year" },
+                columns: new[] { "VehicleId", "Make", "VehModel", "Trim", "Year" },
                 values: new object[,]
                 {
                     { 1, "Honda", "Civic", "DX", 1996 },
