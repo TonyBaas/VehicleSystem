@@ -1,29 +1,22 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-
+using VehicleSystem.Models;
 
 namespace VehicleSystem.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private VehiclesOnLot onLot { get; set; }
+        public HomeController(VehiclesOnLot ctx)
         {
-            _logger = logger;
+            onLot = ctx;
         }
 
         public IActionResult Index()
         {
+            var movies = onLot.Vehicles.OrderBy(m => m.Year).ToList();
             return View();
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-       
     }
 }
