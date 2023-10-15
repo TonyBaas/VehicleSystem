@@ -6,7 +6,7 @@ namespace VehicleSystem.Models
     {
         public VehiclesOnLot(DbContextOptions<VehiclesOnLot> options) : base(options)
         { }
-        public DbSet<Vehicle> Vehicles { get; set; }
+        public DbSet<Vehicle> vehicles { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

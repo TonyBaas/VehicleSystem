@@ -13,28 +13,29 @@ namespace VehicleSystem.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Vehicles",
+                name: "vehicles",
                 columns: table => new
                 {
                     VehicleId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Year = table.Column<int>(type: "int", nullable: false),
                     Make = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Model = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Trim = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    VehModel = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Trim = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BodyStyle = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Vehicles", x => x.VehicleId);
+                    table.PrimaryKey("PK_vehicles", x => x.VehicleId);
                 });
 
             migrationBuilder.InsertData(
-                table: "Vehicles",
-                columns: new[] { "VehicleId", "Make", "VehModel", "Trim", "Year" },
+                table: "vehicles",
+                columns: new[] { "VehicleId", "BodyStyle", "Make", "Trim", "VehModel", "Year" },
                 values: new object[,]
                 {
-                    { 1, "Honda", "Civic", "DX", 1996 },
-                    { 2, "Honda", "Civic", "DX", 1997 }
+                    { 1, "Hatchback", "Honda", "DX", "Civic", 1996 },
+                    { 2, "Coupe", "Honda", "Si", "Civic", 1997 }
                 });
         }
 
@@ -42,7 +43,7 @@ namespace VehicleSystem.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Vehicles");
+                name: "vehicles");
         }
     }
 }

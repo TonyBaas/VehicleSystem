@@ -14,6 +14,7 @@ namespace VehicleSystem.Controllers
 
         public IActionResult Index()
         {
+            var vehicles = onLot.vehicles.OrderBy(m => m.Year).ToList();
             return View();
         }
 

@@ -20,7 +20,7 @@ namespace VehicleSystem.Controllers
         public IActionResult Edit(int id)
         {
             ViewBag.Action = "Edit"; 
-            var vehicle = onLot.Vehicles.Find(id); 
+            var vehicle = onLot.vehicles.Find(id); 
             return View(vehicle);
         }
         [HttpPost]
@@ -29,9 +29,9 @@ namespace VehicleSystem.Controllers
             if (ModelState.IsValid)
             {
                 if (vehicle.VehicleId == 0) 
-                    onLot.Vehicles.Add(vehicle);
+                    onLot.vehicles.Add(vehicle);
                 else
-                    onLot.Vehicles.Update(vehicle); 
+                    onLot.vehicles.Update(vehicle); 
                     onLot.SaveChanges();
                 return RedirectToAction("Index", "Home");
             }

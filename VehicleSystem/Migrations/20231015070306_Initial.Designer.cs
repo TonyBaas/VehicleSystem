@@ -12,7 +12,7 @@ using VehicleSystem.Models;
 namespace VehicleSystem.Migrations
 {
     [DbContext(typeof(VehiclesOnLot))]
-    [Migration("20231015033520_Initial")]
+    [Migration("20231015070306_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -33,15 +33,19 @@ namespace VehicleSystem.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("VehicleId"));
 
+                    b.Property<string>("BodyStyle")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Make")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Model")
+                    b.Property<string>("Trim")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Trim")
+                    b.Property<string>("VehModel")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -51,23 +55,25 @@ namespace VehicleSystem.Migrations
 
                     b.HasKey("VehicleId");
 
-                    b.ToTable("Vehicles");
+                    b.ToTable("vehicles");
 
                     b.HasData(
                         new
                         {
                             VehicleId = 1,
+                            BodyStyle = "Hatchback",
                             Make = "Honda",
-                            Model = "Civic",
                             Trim = "DX",
+                            VehModel = "Civic",
                             Year = 1996
                         },
                         new
                         {
                             VehicleId = 2,
+                            BodyStyle = "Coupe",
                             Make = "Honda",
-                            Model = "Civic",
-                            Trim = "DX",
+                            Trim = "Si",
+                            VehModel = "Civic",
                             Year = 1997
                         });
                 });
